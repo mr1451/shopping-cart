@@ -53,26 +53,31 @@ while True:
 
 #print(selected_ids)
 
-print("MEENA'S GARDEN-FRESH GROCER'S MARKET: RECEIPT OF PURCHASE")
 print("----------------------------------------------------------")
-print("")
-print("")
+print("MEENA'S GARDEN-FRESH GROCER'S MARKET: RECEIPT OF PURCHASE")
+print("3735 M ST NW, Washington, D.C. 20007")
+print("e: https://www.meenasmarket.com")
+print("p: 201.468.1698")
+print("Hours of Operation: M-F, 10 am - 10 pm")
+print("----------------------------------------------------------")
+import datetime
+now = datetime.datetime.now()
+print ("TIME OF CHECKOUT: ")
+print (now.strftime("%Y-%m-%d %H:%M:%S"))
+print("----------------------------------------------------------")
 
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
-    print("SELECTED PRODUCT: " + matching_product["name"] + " " + str(matching_product["price"]))
+    print("SELECTED PRODUCT:  " + matching_product["name"] + " " + str(matching_product["price"]))
 
-print("TOTAL PRICE:" + str(total_price)) #TODO format as USD
-
-
-print("")
-print("")
 print("----------------------------------------------------------")
-print("3735 M ST NW, Washington, D.C. 20007")
-print("e: https://www.meenasmarket.com")
-print("p: 201.468.1698")
-print("Hours of Operation: M-F, 10 am - 10 pm")
+print("SUBTOTAL:" + str(total_price)) #TODO format as USD
+print("TAX:")
+print("TOTAL:")
+print("----------------------------------------------------------")
+print("THANKS FOR SHOPPING! WE HOPE TO SEE YOU AGAIN SOON. ENJOY YOUR FARM-FRESH FOOD, AND CHECK OUR WEBSITE FOR DELICIOUS RECIPE IDEAS!")
+
 
 # TODO: write some Python code here to produce the desired output
