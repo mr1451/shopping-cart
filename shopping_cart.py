@@ -53,6 +53,11 @@ while True:
 
 #print(selected_ids)
 
+print("MEENA'S GARDEN-FRESH GROCER'S MARKET: RECEIPT OF PURCHASE")
+print("----------------------------------------------------------")
+print("")
+print("")
+
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
@@ -61,5 +66,13 @@ for selected_id in selected_ids:
 
 print("TOTAL PRICE:" + str(total_price)) #TODO format as USD
 
+
+print("")
+print("")
+print("----------------------------------------------------------")
+print("3735 M ST NW, Washington, D.C. 20007")
+print("e: https://www.meenasmarket.com")
+print("p: 201.468.1698")
+print("Hours of Operation: M-F, 10 am - 10 pm")
 
 # TODO: write some Python code here to produce the desired output
