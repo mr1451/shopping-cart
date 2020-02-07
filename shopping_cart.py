@@ -85,7 +85,7 @@ for selected_id in selected_ids:
     k = float(individual_price)
     #print(f"PRICE: ${k:,.2f}")
 
-    print("SELECTED PRODUCT:  " + matching_product["name"] + " " + "($" + f"${k:,.2f}" + ")")
+    print("SELECTED PRODUCT:  " + matching_product["name"] + " " + "(" + f"${k:,.2f}" + ")")
 
 print("----------------------------------------------------------")
 
