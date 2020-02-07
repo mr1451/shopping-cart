@@ -40,6 +40,9 @@ while True:
     #> "DONE""
     if selected_id == "DONE":
         break
+    elif selected_id != "DONE" and not selected_id.isdigit():
+        print("Please input a numerical product identifier. Thanks!")
+        # Source for selected_id.isdigit(): https://stackoverflow.com/questions/5424716/how-to-check-if-string-input-is-a-number
     elif int(selected_id) < 1 or int(selected_id) > 20:
         print("Hey, are you sure that product identifier is correct? Please try again!")
     else:
@@ -76,7 +79,10 @@ for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     total_price = total_price + matching_product["price"]
-    print("SELECTED PRODUCT:  " + matching_product["name"] + " " + str(matching_product["price"]))
+    print("SELECTED PRODUCT:  " + matching_product["name"] + " " + "($" + str(matching_product["price"]) + ")")
+
+    k = str(matching_product["price"])
+
 
 print("----------------------------------------------------------")
 
