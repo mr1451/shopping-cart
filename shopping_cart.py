@@ -40,6 +40,8 @@ while True:
     #> "DONE""
     if selected_id == "DONE":
         break
+    elif int(selected_id) < 1 or int(selected_id) > 20:
+        print("Hey, are you sure that product identifier is correct? Please try again!")
     else:
        # matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
        # matching_product = matching_products[0]
@@ -52,18 +54,22 @@ while True:
 # 
 
 #print(selected_ids)
-
+ 
 print("----------------------------------------------------------")
+
 print("MEENA'S GARDEN-FRESH GROCER'S MARKET: RECEIPT OF PURCHASE")
 print("3735 M ST NW, Washington, D.C. 20007")
 print("e: https://www.meenasmarket.com")
 print("p: 201.468.1698")
 print("Hours of Operation: M-F, 10 am - 10 pm")
-print("----------------------------------------------------------")
+
+print("-------------------------------------------=---------------")
+
 import datetime
 now = datetime.datetime.now()
 print ("TIME OF CHECKOUT: ")
 print (now.strftime("%Y-%m-%d %H:%M:%S"))
+
 print("----------------------------------------------------------")
 
 for selected_id in selected_ids:
@@ -73,11 +79,19 @@ for selected_id in selected_ids:
     print("SELECTED PRODUCT:  " + matching_product["name"] + " " + str(matching_product["price"]))
 
 print("----------------------------------------------------------")
-print("SUBTOTAL:" + str(total_price)) #TODO format as USD
-print("TAX:")
-print("TOTAL:")
+
+print(f"SUBTOTAL: ${total_price:,.2f}")
+
+f = float(total_price)
+tax = 0.0875
+total_plus_tax = f * tax
+print(f"AFTER-TAX TOTAL: ${total_plus_tax:,.2f}")
+
+overall = total_price + tax
+print(f"TOTAL PLUS TAX: ${overall:,.2f}")
+
 print("----------------------------------------------------------")
+
 print("THANKS FOR SHOPPING! WE HOPE TO SEE YOU AGAIN SOON. ENJOY YOUR FARM-FRESH FOOD, AND CHECK OUR WEBSITE FOR DELICIOUS RECIPE IDEAS!")
 
-
-# TODO: write some Python code here to produce the desired output
+print("----------------------------------------------------------")
