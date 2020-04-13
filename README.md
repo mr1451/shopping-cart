@@ -18,3 +18,12 @@ Run the program:
 ```py
 python shopping_cart.py
 ```
+
+### Testing
+
+pip install pytest
+
+Run tests:
+```
+pytest
+```
