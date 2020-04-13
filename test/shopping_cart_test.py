@@ -1,6 +1,6 @@
 import pytest # for pytest.raises (see: https://docs.pytest.org/en/latest/assert.html)
 
-from shopping_cart import TAX_RATE, to_usd, find_product
+from app.shopping_cart import TAX_RATE, to_usd, find_product
 
 def test_tax_rate():
     assert(TAX_RATE) == 0.06
