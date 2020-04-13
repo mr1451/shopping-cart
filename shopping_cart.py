@@ -121,4 +121,3 @@ if __name__ == "__main__":
     print("---------------------------------")
     print("THANKS FOR SHOPPING! WE HOPE TO SEE YOU AGAIN SOON. ENJOY YOUR FARM-FRESH FOOD, AND CHECK OUR WEBSITE FOR DELICIOUS RECIPE IDEAS!")
     print("---------------------------------")
-
