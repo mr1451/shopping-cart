@@ -1,3 +1,7 @@
+# Ignore byproducts of testing file
+.pytest_cache
+__pycache__
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
