@@ -11,7 +11,7 @@ def to_usd(my_price):
     Formats value as currency in US dollars.
 
     Params:
-        n (numeric, like int or float), the number to be formatted
+        n (numeric, like int or float), the number to be formatted in USD
 
     Examples:
         to_usd(412.281)
@@ -26,7 +26,7 @@ def find_product(product_id, all_products):
     Identifies product from list of products.
 
     Params:
-        product_id (numeric) from list of all_products, product to be identified
+        product_id (int between 1-20) from list of products
 
     Examples:
         find_product(1)
@@ -38,10 +38,10 @@ def find_product(product_id, all_products):
 
 def human_friendly_timestamp(checkout_start_at):
     """
-    Reformats date and time in an easy-to-read way.
+    Reformats checkout date and time in a more human-friendly way (i.e. rounds to nearest minute, includes AM or PM at end of timestamp).
 
     Params:
-        checkout_start_at (string), to be reformatted as a human-friendly date-time string
+        checkout_start_at (a datetime object), the checkout date and time to be returned as a string.
 
     Examples:
         human_friendly_timestamp(2020-02-02 20:20:20.202020)
@@ -54,7 +54,7 @@ def calculate_tax(subtotal_price):
     Calculates tax on the subtotal of items.
 
     Params:
-        subtotal_price (numeric, like an integer or float) to be multiplied by tax rate
+        subtotal_price (numeric, like an int or float), to be multiplied by tax rate
     
     Examples:
         calculate_tax(412.281)
@@ -68,7 +68,7 @@ def calculate_total_price(subtotal_price, tax):
     Calculates the after-tax total price as the sum of the subtotal and tax.
 
     Params:
-        subtotal_price and tax (both numeric, like an integer or float), to be summed
+        subtotal_price and tax (both numeric, like an int or float), to be summed
     
     Examples:
         calculate_total_price(412.281, 24.836)
@@ -111,13 +111,6 @@ if __name__ == "__main__":
     subtotal_price = 0
     selected_ids = []
 
-    #while True:
-    #    selected_id = input("Please input a product identifier: ") #> "9" (string)
-    #    if selected_id == "DONE":
-    #        break
-    #    else:
-    #        selected_ids.append(selected_id)
-#
     while True:
         selected_id = input("Please input a product identifier:") #> "9" (string)
         #> "DONE""

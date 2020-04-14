@@ -1,21 +1,11 @@
 import pytest # for pytest.raises (see: https://docs.pytest.org/en/latest/assert.html)
 
-from app.shopping_cart import TAX_RATE, to_usd, find_product
+from app.shopping_cart import TAX_RATE, to_usd, find_product, human_friendly_timestamp, calculate_tax, calculate_total_price
 
 def test_tax_rate():
     assert(TAX_RATE) == 0.06
 
 def test_to_usd():
-    """
-    Formats value as currency in US dollars.
-
-    Params:
-        n (numeric, like int or float) the number to be formatted
-
-    Examples:
-        to_usd(412.281)
-        to_usd(0.9842)
-    """
     # it should apply USD formatting
     assert to_usd(4.50) == "$4.50"
 
@@ -29,15 +19,6 @@ def test_to_usd():
     assert to_usd(1234567890.5555555) == "$1,234,567,890.56"
 
 def test_find_product():
-    """
-    Identifies product from list of products.
-
-    Params:
-
-    Examples:
-        find_product(1)
-        find_product(18)
-    """
     products = [
         {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
         {"id":3, "name": "Robust Golden Unsweetened Oolong Tea", "department": "beverages", "aisle": "tea", "price": 2.49},
@@ -51,3 +32,18 @@ def test_find_product():
     # if there is no match, it should raise an IndexError
     with pytest.raises(IndexError):
         find_product("2222", products)
+
+def test_human_friendly_timestamp():
+    # it should display the time in an human-friendly format (round to the nearest minute, add AM or PM timestamp)
+    # update by the second
+    assert human_friendly_timestamp != "2020-04-14 05:16 PM"
+
+def test_calculate_tax():
+    
+    #it should calculate tax as 6.0% of the subtotal
+    assert calculate_tax(100.00) == 6.00
+
+def test_calculate_total_price():
+    
+    #it should find the sum of subtotal and tax
+    assert calculate_total_price(100.00, 6.00) == 106.00
