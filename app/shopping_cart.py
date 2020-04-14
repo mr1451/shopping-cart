@@ -112,7 +112,7 @@ if __name__ == "__main__":
     selected_ids = []
 
     while True:
-        selected_id = input("Please input a product identifier:") #> "9" (string)
+        selected_id = input("Please input a numerical product identifier between 1 and 20, or DONE once you have finished:") #> "9" (string)
         #> "DONE""
         if selected_id == "DONE":
             break
@@ -120,7 +120,7 @@ if __name__ == "__main__":
             print("Please input a numerical product identifier. Thanks!")
             # Source for selected_id.isdigit(): https://stackoverflow.com/questions/5424716/how-to-check-if-string-input-is-a-number
         elif int(selected_id) < 1 or int(selected_id) > 20:
-            print("Hey, are you sure that product identifier is correct? Please try again!")
+            print("Hey, are you sure that product identifier is correct? It should be a number between 1 and 20. Please try again!")
         else:
             selected_ids.append(selected_id)
 
