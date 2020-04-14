@@ -11,7 +11,7 @@ def to_usd(my_price):
     Formats value as currency in US dollars.
 
     Params:
-        n (numeric, like int or float) the number to be formatted
+        n (numeric, like int or float), the number to be formatted
 
     Examples:
         to_usd(412.281)
@@ -36,10 +36,18 @@ def find_product(product_id, all_products):
     matching_product = matching_products[0]
     return matching_product
 
-#def human_friendly_timestamp():
-    #"""
-    #"""
-    #return
+def human_friendly_timestamp(checkout_start_at):
+    """
+    Reformats date and time in an easy-to-read way.
+
+    Params:
+        checkout_start_at (string), to be reformatted as a human-friendly date-time string
+
+    Examples:
+        human_friendly_timestamp(2020-02-02 20:20:20.202020)
+        human_friendly_timestamp(1998-05-28 20:30:30.123456)
+    """
+    return checkout_start_at.strftime("%Y-%m-%d %I:%M %p")
 
 def calculate_tax(subtotal_price):
     """
@@ -98,7 +106,7 @@ if __name__ == "__main__":
     #
     # INFO CAPTURE / INPUT
     #
-
+    
     checkout_start_at = dt.datetime.now() # current date and time, see: https://github.com/prof-rossetti/georgetown-opim-243-201901/blob/master/notes/python/modules/datetime.md
     subtotal_price = 0
     selected_ids = []
@@ -134,7 +142,7 @@ if __name__ == "__main__":
     print("p: 201.468.1698")
     print("Hours of Operation: M-F, 10 am - 10 pm")
     print("---------------------------------")
-    print("CHECKOUT AT: " + checkout_start_at.strftime("%Y-%m-%d %I:%M %p")) # datetime formatting, see: https://docs.python.org/3/library/datetime.html#strftime-strptime-behavior
+    print("CHECKOUT AT: " + human_friendly_timestamp(checkout_start_at))
     print("---------------------------------")
 
     print("SELECTED PRODUCTS:")
