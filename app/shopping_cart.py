@@ -26,6 +26,7 @@ def find_product(product_id, all_products):
     Identifies product from list of products.
 
     Params:
+        product_id (numeric) from list of all_products, product to be identified
 
     Examples:
         find_product(1)
@@ -34,6 +35,39 @@ def find_product(product_id, all_products):
     matching_products = [p for p in all_products if str(p["id"]) == str(product_id)]
     matching_product = matching_products[0]
     return matching_product
+
+#def human_friendly_timestamp():
+    #"""
+    #"""
+    #return
+
+def calculate_tax(subtotal_price):
+    """
+    Calculates tax on the subtotal of items.
+
+    Params:
+        subtotal_price (numeric, like an integer or float) to be multiplied by tax rate
+    
+    Examples:
+        calculate_tax(412.281)
+        calculate_tax(0.9842)
+    """
+    tax = subtotal_price * TAX_RATE
+    return tax
+
+def calculate_total_price(subtotal_price, tax):
+    """
+    Calculates the after-tax total price as the sum of the subtotal and tax.
+
+    Params:
+        subtotal_price and tax (both numeric, like an integer or float), to be summed
+    
+    Examples:
+        calculate_total_price(412.281, 24.836)
+        calculate_total_price(0.9842, 0.0569)
+    """
+    total_price = subtotal_price + tax
+    return total_price
 
 if __name__ == "__main__":
     #only run this if it is invoked from the command-line!
@@ -110,9 +144,9 @@ if __name__ == "__main__":
         subtotal_price = subtotal_price + matching_product["price"]
         print(" ... " + matching_product["name"] + " (" + to_usd(matching_product["price"]) + ")")
 
-    tax = subtotal_price * TAX_RATE
+    tax = calculate_tax(subtotal_price)
 
-    total_price = subtotal_price + tax
+    total_price = calculate_total_price(subtotal_price, tax)
 
     print("---------------------------------")
     print("SUBTOTAL: " + to_usd(subtotal_price))

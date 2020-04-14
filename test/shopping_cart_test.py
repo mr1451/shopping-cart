@@ -6,6 +6,16 @@ def test_tax_rate():
     assert(TAX_RATE) == 0.06
 
 def test_to_usd():
+    """
+    Formats value as currency in US dollars.
+
+    Params:
+        n (numeric, like int or float) the number to be formatted
+
+    Examples:
+        to_usd(412.281)
+        to_usd(0.9842)
+    """
     # it should apply USD formatting
     assert to_usd(4.50) == "$4.50"
 
@@ -19,6 +29,15 @@ def test_to_usd():
     assert to_usd(1234567890.5555555) == "$1,234,567,890.56"
 
 def test_find_product():
+    """
+    Identifies product from list of products.
+
+    Params:
+
+    Examples:
+        find_product(1)
+        find_product(18)
+    """
     products = [
         {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
         {"id":3, "name": "Robust Golden Unsweetened Oolong Tea", "department": "beverages", "aisle": "tea", "price": 2.49},
