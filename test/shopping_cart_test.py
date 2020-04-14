@@ -1,6 +1,8 @@
+#shopping_cart_test.py
+
 import pytest # for pytest.raises (see: https://docs.pytest.org/en/latest/assert.html)
 
-from app.shopping_cart import TAX_RATE, to_usd, find_product
+from app.shopping_cart import TAX_RATE, to_usd, find_product, human_friendly_timestamp, calculate_tax, calculate_total_price
 
 def test_tax_rate():
     assert(TAX_RATE) == 0.06
@@ -32,3 +34,19 @@ def test_find_product():
     # if there is no match, it should raise an IndexError
     with pytest.raises(IndexError):
         find_product("2222", products)
+
+def test_human_friendly_timestamp():
+   
+    # it should display the time in an human-friendly format (round to the nearest minute, add AM or PM timestamp)
+    # update by the second
+    assert human_friendly_timestamp != "2020-04-14 05:16 PM"
+
+def test_calculate_tax():
+    
+    #it should calculate tax as 6.0% of the subtotal
+    assert calculate_tax(100.00) == 6.00
+
+def test_calculate_total_price():
+    
+    #it should find the sum of subtotal and tax
+    assert calculate_total_price(100.00, 6.00) == 106.00
